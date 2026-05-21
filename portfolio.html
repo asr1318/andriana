@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andriana Rahayu — Administrative & Operations Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1D3A;
+    --navy-mid: #162B52;
+    --gold: #C8963E;
+    --gold-lt: #E8B96A;
+    --cream: #F9F6F0;
+    --warm-white: #FFFFFF;
+    --slate: #4A5568;
+    --slate-lt: #718096;
+    --border: #E2D9CC;
+    --tag-bg: #EEF0F5;
+    --tag-text: #2D3748;
+    --section-gap: 80px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(11, 29, 58, 0.97);
+    backdrop-filter: blur(8px);
+    padding: 0 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+    border-bottom: 1px solid rgba(200,150,62,0.2);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--gold-lt);
+    letter-spacing: 0.5px;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-lt); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 100px 80px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -120px; right: -80px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: rgba(200,150,62,0.06);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -60px; left: 60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(200,150,62,0.04);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(200,150,62,0.12);
+    border: 1px solid rgba(200,150,62,0.3);
+    color: var(--gold-lt);
+    font-size: 12px; letter-spacing: 1.5px;
+    text-transform: uppercase; font-weight: 600;
+    padding: 6px 16px; border-radius: 20px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.5s ease both;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold);
+    animation: pulse 2s ease infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(44px, 5vw, 68px);
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 8px;
+    animation: fadeUp 0.5s 0.1s ease both;
+  }
+  .hero-name em { color: var(--gold-lt); font-style: italic; }
+  .hero-title {
+    font-size: 18px; font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.3px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.5s 0.2s ease both;
+  }
+  .hero-desc {
+    font-size: 16px; line-height: 1.8;
+    color: rgba(255,255,255,0.65);
+    max-width: 480px;
+    margin-bottom: 40px;
+    animation: fadeUp 0.5s 0.3s ease both;
+  }
+  .hero-ctas {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    animation: fadeUp 0.5s 0.4s ease both;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 14px 32px; border-radius: 4px;
+    font-weight: 600; font-size: 14px;
+    text-decoration: none; letter-spacing: 0.3px;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { background: var(--gold-lt); transform: translateY(-1px); }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.8);
+    padding: 14px 32px; border-radius: 4px;
+    font-weight: 500; font-size: 14px;
+    text-decoration: none; letter-spacing: 0.3px;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+  .btn-outline:hover { border-color: var(--gold-lt); color: var(--gold-lt); transform: translateY(-1px); }
+
+  .hero-right {
+    display: flex; flex-direction: column;
+    align-items: flex-end; gap: 20px;
+    padding-left: 60px;
+    animation: fadeUp 0.5s 0.2s ease both;
+  }
+  .stat-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; width: 100%; max-width: 380px;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 20px 22px;
+    transition: border-color 0.2s;
+  }
+  .stat-card:hover { border-color: rgba(200,150,62,0.3); }
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px; font-weight: 700;
+    color: var(--gold-lt);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label { font-size: 12px; color: rgba(255,255,255,0.45); letter-spacing: 0.3px; }
+
+  .tools-strip {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 18px 22px;
+    width: 100%; max-width: 380px;
+  }
+  .tools-strip-label { font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 12px; }
+  .tools-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tool-pill {
+    background: rgba(200,150,62,0.1);
+    border: 1px solid rgba(200,150,62,0.2);
+    color: var(--gold-lt);
+    font-size: 12px; font-weight: 500;
+    padding: 4px 12px; border-radius: 20px;
+  }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+
+  /* ── SHARED LAYOUT ── */
+  section { padding: var(--section-gap) 80px; }
+  .section-header {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 48px;
+  }
+  .section-eyebrow {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); font-weight: 600;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 3vw, 42px);
+    color: var(--navy);
+    line-height: 1.15;
+    margin-top: 6px;
+  }
+  .section-lead {
+    font-size: 17px; color: var(--slate); line-height: 1.8;
+    max-width: 640px; margin-top: 12px;
+  }
+  .divider { width: 48px; height: 3px; background: var(--gold); border-radius: 2px; margin: 16px 0 0; }
+
+  /* ── SKILLS SECTION ── */
+  .skills-section { background: white; }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .skill-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 28px 24px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .skill-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px; background: var(--gold);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .skill-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(11,29,58,0.08); }
+  .skill-card:hover::before { transform: scaleX(1); }
+  .skill-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px; font-size: 20px;
+  }
+  .skill-name { font-weight: 600; font-size: 16px; color: var(--navy); margin-bottom: 8px; }
+  .skill-desc { font-size: 14px; color: var(--slate); line-height: 1.65; margin-bottom: 16px; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .skill-tag {
+    background: var(--tag-bg); color: var(--tag-text);
+    font-size: 11px; font-weight: 500;
+    padding: 3px 10px; border-radius: 20px;
+    letter-spacing: 0.2px;
+  }
+
+  /* ── PROJECTS ── */
+  .projects-section { background: var(--cream); }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 28px;
+  }
+  .project-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex; flex-direction: column;
+  }
+  .project-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(11,29,58,0.1); }
+  .project-header {
+    padding: 28px 28px 0;
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+  }
+  .project-cat {
+    font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--gold); font-weight: 600;
+    background: rgba(200,150,62,0.1);
+    padding: 4px 10px; border-radius: 20px;
+    white-space: nowrap;
+  }
+  .project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; line-height: 1.25;
+    color: var(--navy); margin: 12px 0 10px;
+  }
+  .project-body { padding: 0 28px 28px; flex: 1; display: flex; flex-direction: column; }
+  .project-desc { font-size: 14px; color: var(--slate); line-height: 1.7; margin-bottom: 20px; flex: 1; }
+  .project-metrics {
+    display: flex; gap: 20px; flex-wrap: wrap;
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 20px;
+  }
+  .metric { text-align: center; }
+  .metric-val { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--navy); font-weight: 700; line-height: 1; }
+  .metric-label { font-size: 11px; color: var(--slate-lt); margin-top: 2px; }
+  .project-skills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .project-skill {
+    background: var(--navy); color: white;
+    font-size: 11px; font-weight: 500;
+    padding: 3px 10px; border-radius: 4px;
+    letter-spacing: 0.2px;
+  }
+
+  /* ── EXCEL SHOWCASE ── */
+  .excel-section { background: var(--navy); }
+  .excel-section .section-title { color: white; }
+  .excel-section .section-lead { color: rgba(255,255,255,0.6); }
+  .excel-section .section-eyebrow { color: var(--gold-lt); }
+  .formula-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .formula-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 18px 20px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .formula-card:hover {
+    border-color: rgba(200,150,62,0.35);
+    background: rgba(200,150,62,0.06);
+  }
+  .formula-code {
+    font-family: 'Courier New', monospace;
+    font-size: 13px; font-weight: 600;
+    color: var(--gold-lt);
+    margin-bottom: 6px;
+  }
+  .formula-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+  .feature-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+  }
+  .feature-item {
+    display: flex; align-items: center; gap: 10px;
+    color: rgba(255,255,255,0.65); font-size: 14px;
+  }
+  .feature-item::before {
+    content: '✓';
+    width: 22px; height: 22px; border-radius: 50%;
+    background: rgba(200,150,62,0.15);
+    border: 1px solid rgba(200,150,62,0.3);
+    color: var(--gold-lt);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ── ADMIN COMPETENCIES ── */
+  .admin-section { background: white; }
+  .competency-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .competency-item {
+    background: white;
+    padding: 28px 26px;
+    transition: background 0.2s;
+  }
+  .competency-item:hover { background: var(--cream); }
+  .comp-icon { font-size: 26px; margin-bottom: 12px; }
+  .comp-title { font-weight: 600; font-size: 15px; color: var(--navy); margin-bottom: 6px; }
+  .comp-desc { font-size: 13px; color: var(--slate); line-height: 1.6; }
+
+  /* ── EXPERIENCE TIMELINE ── */
+  .exp-section { background: var(--cream); }
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 7px; top: 8px; bottom: 8px;
+    width: 2px; background: var(--border);
+  }
+  .timeline-item { position: relative; margin-bottom: 40px; }
+  .timeline-item::before {
+    content: '';
+    position: absolute; left: -24px; top: 6px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--gold); border: 3px solid white;
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+  .timeline-period {
+    font-size: 12px; letter-spacing: 0.5px;
+    color: var(--gold); font-weight: 600;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+  .timeline-role { font-weight: 600; font-size: 18px; color: var(--navy); margin-bottom: 2px; }
+  .timeline-org { font-size: 14px; color: var(--slate-lt); margin-bottom: 12px; }
+  .timeline-points { list-style: none; }
+  .timeline-points li {
+    font-size: 14px; color: var(--slate); line-height: 1.65;
+    padding: 3px 0 3px 16px; position: relative;
+  }
+  .timeline-points li::before {
+    content: '–'; position: absolute; left: 0;
+    color: var(--gold); font-weight: 600;
+  }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background: var(--navy);
+    text-align: center;
+    padding: 80px;
+  }
+  .contact-section .section-title { color: white; }
+  .contact-sub { font-size: 17px; color: rgba(255,255,255,0.55); margin: 12px auto 40px; max-width: 480px; line-height: 1.7; }
+  .contact-cards {
+    display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
+  }
+  .contact-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 20px 28px;
+    min-width: 200px; text-align: left;
+    transition: border-color 0.2s;
+  }
+  .contact-card:hover { border-color: rgba(200,150,62,0.4); }
+  .contact-card-label { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 6px; }
+  .contact-card-val { font-size: 15px; color: rgba(255,255,255,0.85); font-weight: 500; }
+
+  .availability-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(16,185,129,0.12);
+    border: 1px solid rgba(16,185,129,0.3);
+    color: #6ee7b7;
+    font-size: 13px; font-weight: 500;
+    padding: 8px 20px; border-radius: 20px;
+    margin-top: 40px;
+  }
+  .availability-badge::before {
+    content: '';
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #10b981;
+    animation: pulse 2s ease infinite;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #07111F;
+    padding: 24px 80px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-name {
+    font-family: 'Playfair Display', serif;
+    color: rgba(255,255,255,0.4); font-size: 14px;
+  }
+  .footer-note { font-size: 12px; color: rgba(255,255,255,0.2); }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { gap: 20px; }
+    .hero { grid-template-columns: 1fr; padding: 90px 28px 60px; }
+    .hero-right { padding-left: 0; align-items: flex-start; }
+    .stat-grid, .tools-strip { max-width: 100%; }
+    section { padding: 60px 28px; }
+    .competency-grid { grid-template-columns: 1fr 1fr; }
+    footer { padding: 20px 28px; flex-direction: column; gap: 8px; text-align: center; }
+    .contact-section { padding: 60px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Andriana Rahayu</div>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#excel">Excel</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-badge">Open to Opportunities</div>
+    <h1 class="hero-name">Andriana<br><em>Rahayu</em></h1>
+    <p class="hero-title">Administrative & Operations Professional</p>
+    <p class="hero-desc">
+      Detail-oriented professional specializing in business administration, financial data management, and operational coordination. Proven ability to build structured systems across inventory, sales reporting, procurement, and executive presentation — with advanced Microsoft Excel proficiency.
+    </p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary">View Projects ↓</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Completed Projects</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">6</div>
+        <div class="stat-label">Excel Skill Areas</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Business Domains</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">Bi·lingual</div>
+        <div class="stat-label">ID · EN</div>
+      </div>
+    </div>
+    <div class="tools-strip">
+      <div class="tools-strip-label">Core Tools</div>
+      <div class="tools-list">
+        <span class="tool-pill">Microsoft Excel</span>
+        <span class="tool-pill">PowerPoint</span>
+        <span class="tool-pill">Google Workspace</span>
+        <span class="tool-pill">Data Analysis</span>
+        <span class="tool-pill">Inventory Mgmt</span>
+        <span class="tool-pill">Financial Reporting</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">Competency Areas</div>
+      <h2 class="section-title">What I Bring to the Table</h2>
+      <div class="divider"></div>
+    </div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">📊</div>
+      <div class="skill-name">Advanced Excel & Data Management</div>
+      <div class="skill-desc">Proficient in complex formula building, data validation, conditional formatting, and structured datasets with 500+ rows. Creates dynamic reports that drive decision-making.</div>
+      <div class="skill-tags">
+        <span class="skill-tag">VLOOKUP / HLOOKUP</span>
+        <span class="skill-tag">IF / SUMIF / COUNTIF</span>
+        <span class="skill-tag">Date & Time Functions</span>
+        <span class="skill-tag">Pivot Tables</span>
+        <span class="skill-tag">Data Validation</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📋</div>
+      <div class="skill-name">Inventory & Asset Management</div>
+      <div class="skill-desc">Builds and maintains comprehensive inventory tracking systems — from bin cards to full asset registers — including procurement records and service estimation budgets.</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Bin Card Management</span>
+        <span class="skill-tag">Asset Cataloging</span>
+        <span class="skill-tag">Budget Estimation</span>
+        <span class="skill-tag">Vendor Coordination</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">💰</div>
+      <div class="skill-name">Sales Reporting & Financial Tracking</div>
+      <div class="skill-desc">Designs multi-sheet sales trackers with automated totals, product-level P&L breakdowns, and customer transaction logs covering multiple sales channels.</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Sales Tracker</span>
+        <span class="skill-tag">Revenue Reports</span>
+        <span class="skill-tag">Transaction Logging</span>
+        <span class="skill-tag">Multi-channel Data</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🎯</div>
+      <div class="skill-name">Business Presentation & Communication</div>
+      <div class="skill-desc">Creates polished professional presentations for company profiles, partnership kick-offs, and learning programs — in both Indonesian and English.</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Company Profiles</span>
+        <span class="skill-tag">Kick-off Decks</span>
+        <span class="skill-tag">ITIL / ITSM Modules</span>
+        <span class="skill-tag">Bilingual</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🏢</div>
+      <div class="skill-name">Office Administration & Procurement</div>
+      <div class="skill-desc">Manages full office facility records, procurement tracking with invoice matching, and service maintenance scheduling with vendor contact lists.</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Facility Records</span>
+        <span class="skill-tag">Invoice Tracking</span>
+        <span class="skill-tag">Procurement</span>
+        <span class="skill-tag">Maintenance Logs</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">☕</div>
+      <div class="skill-name">Transaction & Accounting Support</div>
+      <div class="skill-desc">Processes multi-day transaction datasets for service businesses — including journal entry mapping, account classification, and period-based financial summaries.</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Journal Entries</span>
+        <span class="skill-tag">Account Mapping</span>
+        <span class="skill-tag">7-Day Cycles</span>
+        <span class="skill-tag">Coffee Shop Finance</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-section" id="projects">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">Portfolio Work</div>
+      <h2 class="section-title">Selected Projects</h2>
+      <p class="section-lead">Real-world administrative and business projects demonstrating structured thinking, data accuracy, and professional output quality.</p>
+      <div class="divider"></div>
+    </div>
+  </div>
+  <div class="projects-grid">
+
+    <!-- Project 1 -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-cat">Sales & Revenue</span>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title">SakuSaku Sales Report & Tracker</h3>
+        <p class="project-desc">Built a comprehensive multi-sheet sales management system for a handmade bag brand. Covers raw transaction data, automated sales reports, sales tracker with per-product P&L, and a dynamic support reference table — spanning Jan–Feb 2025 activity.</p>
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-val">4</div><div class="metric-label">Workbook Sheets</div></div>
+          <div class="metric"><div class="metric-val">1,000+</div><div class="metric-label">Data Rows</div></div>
+          <div class="metric"><div class="metric-val">5</div><div class="metric-label">Product Lines</div></div>
+        </div>
+        <div class="project-skills">
+          <span class="project-skill">Excel</span>
+          <span class="project-skill">Multi-sheet Formulas</span>
+          <span class="project-skill">Sales Reporting</span>
+          <span class="project-skill">P&L Tracking</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-cat">Inventory Management</span>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title">SakuSaku Asset & Inventory Register</h3>
+        <p class="project-desc">Designed a complete business asset inventory for a retail/events brand — cataloging production equipment, marketing displays, documentation tools (mirrorless camera, ring light), and event supplies with unique asset codes and a linked Google Form borrowing system.</p>
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-val">16</div><div class="metric-label">Assets Cataloged</div></div>
+          <div class="metric"><div class="metric-val">4</div><div class="metric-label">Categories</div></div>
+          <div class="metric"><div class="metric-val">Digital</div><div class="metric-label">Loan Form</div></div>
+        </div>
+        <div class="project-skills">
+          <span class="project-skill">Asset Register</span>
+          <span class="project-skill">Google Forms</span>
+          <span class="project-skill">PDF Documentation</span>
+          <span class="project-skill">Categorization</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-cat">Financial Admin</span>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title">Ruang Rasa Coffee Shop — Transaction Data</h3>
+        <p class="project-desc">Processed and structured 7-day transaction data for a café business (25–31 January 2025). Mapped raw sales descriptions into a classified journal format with account numbers, debit/credit logic, and balance summaries — suitable for bookkeeping and audit use.</p>
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-val">1,000+</div><div class="metric-label">Transactions</div></div>
+          <div class="metric"><div class="metric-val">7</div><div class="metric-label">Day Period</div></div>
+          <div class="metric"><div class="metric-val">2</div><div class="metric-label">Sheet Views</div></div>
+        </div>
+        <div class="project-skills">
+          <span class="project-skill">Bookkeeping</span>
+          <span class="project-skill">Journal Entries</span>
+          <span class="project-skill">Account Classification</span>
+          <span class="project-skill">Excel</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4 -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-cat">Procurement & Facilities</span>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title">Office Facility Procurement Tracker</h3>
+        <p class="project-desc">Created a structured office supplies procurement record with invoice numbers, item categories, quantities, unit costs, and auto-calculated totals. Also includes a service estimation budget with vendor details and a contact coordination sheet for repair and maintenance activities.</p>
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-val">45</div><div class="metric-label">Items Logged</div></div>
+          <div class="metric"><div class="metric-val">Multi-vendor</div><div class="metric-label">Coordination</div></div>
+          <div class="metric"><div class="metric-val">2</div><div class="metric-label">Linked Sheets</div></div>
+        </div>
+        <div class="project-skills">
+          <span class="project-skill">Procurement</span>
+          <span class="project-skill">Invoice Matching</span>
+          <span class="project-skill">Budget Estimation</span>
+          <span class="project-skill">Vendor Management</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 5 -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-cat">Business Presentation</span>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title">PT ABCD × PT Daya Perkasa — Partnership Deck</h3>
+        <p class="project-desc">Produced a 10-slide kick-off meeting presentation for a B2B financial administration services partnership. Covered background analysis, proposed solutions, scope of work, delivery phases, and value proposition — structured for a C-suite audience.</p>
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-val">10</div><div class="metric-label">Slides</div></div>
+          <div class="metric"><div class="metric-val">B2B</div><div class="metric-label">Client Context</div></div>
+          <div class="metric"><div class="metric-val">C-Suite</div><div class="metric-label">Audience Level</div></div>
+        </div>
+        <div class="project-skills">
+          <span class="project-skill">PowerPoint</span>
+          <span class="project-skill">B2B Proposals</span>
+          <span class="project-skill">Executive Communication</span>
+          <span class="project-skill">Storytelling</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 6 -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-cat">Learning & Development</span>
+      </div>
+      <div class="project-body">
+        <h3 class="project-title">ITIL & IT Service Management — Learning Program</h3>
+        <p class="project-desc">Developed a comprehensive English-language learning module introducing ITIL and ITSM concepts. Covers service lifecycle, governance, Day 1–2 training structure with session breakdowns, prerequisites, learning objectives, and practical workshop activities.</p>
+        <div class="project-metrics">
+          <div class="metric"><div class="metric-val">English</div><div class="metric-label">Language</div></div>
+          <div class="metric"><div class="metric-val">2-Day</div><div class="metric-label">Program</div></div>
+          <div class="metric"><div class="metric-val">ITIL</div><div class="metric-label">Framework</div></div>
+        </div>
+        <div class="project-skills">
+          <span class="project-skill">Curriculum Design</span>
+          <span class="project-skill">ITIL Framework</span>
+          <span class="project-skill">Technical Writing</span>
+          <span class="project-skill">English</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXCEL SHOWCASE -->
+<section class="excel-section" id="excel">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">Technical Proficiency</div>
+      <h2 class="section-title" style="color:white;">Excel & Data Skills</h2>
+      <p class="section-lead">Demonstrated through structured exercises, real-world datasets, and applied formula work across 500–1,000 row tables.</p>
+      <div class="divider"></div>
+    </div>
+  </div>
+  <div class="formula-grid">
+    <div class="formula-card">
+      <div class="formula-code">=IF( )</div>
+      <div class="formula-desc">Conditional logic for grading, classification, and alert systems</div>
+    </div>
+    <div class="formula-card">
+      <div class="formula-code">=SUMIF( )</div>
+      <div class="formula-desc">Aggregate totals filtered by category or product</div>
+    </div>
+    <div class="formula-card">
+      <div class="formula-code">=COUNTIF( )</div>
+      <div class="formula-desc">Count occurrences for reporting and auditing</div>
+    </div>
+    <div class="formula-card">
+      <div class="formula-code">=VLOOKUP( )</div>
+      <div class="formula-desc">Cross-reference salary grades, product codes, customer data</div>
+    </div>
+    <div class="formula-card">
+      <div class="formula-code">=HLOOKUP( )</div>
+      <div class="formula-desc">Horizontal lookup for table-based reference retrieval</div>
+    </div>
+    <div class="formula-card">
+      <div class="formula-code">=DATEDIF( )</div>
+      <div class="formula-desc">Tenure calculations and HR date logic</div>
+    </div>
+    <div class="formula-card">
+      <div class="formula-code">=UPPER/LOWER/PROPER( )</div>
+      <div class="formula-desc">Text standardization for clean data entry</div>
+    </div>
+    <div class="formula-card">
+      <div class="formula-code">=NOW( ) / =TODAY( )</div>
+      <div class="formula-desc">Dynamic date-stamping for reports and logs</div>
+    </div>
+  </div>
+  <div style="margin-bottom: 16px; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.35);">Additional Excel Features Mastered</div>
+  <div class="feature-list">
+    <div class="feature-item">Sort & Multi-level Sort</div>
+    <div class="feature-item">Filter & Advanced Filter</div>
+    <div class="feature-item">Conditional Formatting</div>
+    <div class="feature-item">Data Validation Rules</div>
+    <div class="feature-item">Bin Card (Inventory Ledger)</div>
+    <div class="feature-item">Multi-sheet Workbook Design</div>
+    <div class="feature-item">Column Width & Print Layout</div>
+    <div class="feature-item">Named Ranges & References</div>
+    <div class="feature-item">Payroll Calculation Tables</div>
+    <div class="feature-item">Date-based HR Reporting</div>
+  </div>
+</section>
+
+<!-- ADMIN COMPETENCIES -->
+<section class="admin-section" id="about">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">Professional Profile</div>
+      <h2 class="section-title">Administrative Competencies</h2>
+      <div class="divider"></div>
+    </div>
+  </div>
+  <div class="competency-grid">
+    <div class="competency-item">
+      <div class="comp-icon">🗂️</div>
+      <div class="comp-title">Records Management</div>
+      <div class="comp-desc">Structures physical and digital records with consistent naming, asset codes, and retrieval systems.</div>
+    </div>
+    <div class="competency-item">
+      <div class="comp-icon">📝</div>
+      <div class="comp-title">Document Production</div>
+      <div class="comp-desc">Produces reports, proposals, and summaries in both Bahasa Indonesia and English at a professional standard.</div>
+    </div>
+    <div class="competency-item">
+      <div class="comp-icon">🔢</div>
+      <div class="comp-title">Numerical Accuracy</div>
+      <div class="comp-desc">Applies financial formulas, cross-checks totals, and maintains zero-error standards in transactional data.</div>
+    </div>
+    <div class="competency-item">
+      <div class="comp-icon">🤝</div>
+      <div class="comp-title">Vendor Coordination</div>
+      <div class="comp-desc">Manages vendor contact lists, service schedules, and procurement tracking across multiple suppliers.</div>
+    </div>
+    <div class="competency-item">
+      <div class="comp-icon">🖥️</div>
+      <div class="comp-title">Digital Workflow</div>
+      <div class="comp-desc">Comfortable operating across Microsoft Office, Google Workspace, email tools, and digital form platforms.</div>
+    </div>
+    <div class="competency-item">
+      <div class="comp-icon">🌐</div>
+      <div class="comp-title">Bilingual Communication</div>
+      <div class="comp-desc">Fluent in Bahasa Indonesia; working proficiency in English — capable of preparing documentation in both languages.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-eyebrow" style="color:var(--gold-lt); margin-bottom:12px;">Let's Connect</div>
+  <h2 class="section-title">Open to Global Opportunities</h2>
+  <p class="contact-sub">Available for administrative, operations, and data management roles — locally in Indonesia or internationally. Experienced, structured, and ready to contribute from day one.</p>
+  <div class="contact-cards">
+    <div class="contact-card">
+      <div class="contact-card-label">Location</div>
+      <div class="contact-card-val">Jakarta, Indonesia</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card-label">Languages</div>
+      <div class="contact-card-val">Indonesian · English</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card-label">Work Mode</div>
+      <div class="contact-card-val">On-site · Remote · Hybrid</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card-label">Specialization</div>
+      <div class="contact-card-val">Admin · Operations · Data</div>
+    </div>
+  </div>
+  <div class="availability-badge">Available for opportunities</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Andriana Rahayu — Administrative & Operations Professional</div>
+  <div class="footer-note">Jakarta, Indonesia · 2025</div>
+</footer>
+
+</body>
+</html>
